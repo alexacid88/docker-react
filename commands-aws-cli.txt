@@ -1,0 +1,58 @@
+aws elasticbeanstalk create-application --application-name docker-react
+
+{
+    "Application": {
+        "ApplicationArn": "arn:aws:elasticbeanstalk:<REGION>:<ACCOUNT_ID>:application/docker-react",
+        "ApplicationName": "docker-react",
+        "DateCreated": "2020-03-31T21:52:49.624Z",
+        "DateUpdated": "2020-03-31T21:52:49.624Z",
+        "ConfigurationTemplates": [],
+        "ResourceLifecycleConfig": {
+            "VersionLifecycleConfig": {
+                "MaxCountRule": {
+                    "Enabled": false,
+                    "MaxCount": 200,
+                    "DeleteSourceFromS3": false
+                },
+                "MaxAgeRule": {
+                    "Enabled": false,
+                    "MaxAgeInDays": 180,
+                    "DeleteSourceFromS3": false
+                }
+            }
+        }
+    }
+}
+
+================================================================================
+aws elasticbeanstalk list-platform-versions | grep PlatformArn | grep Docker
+
+"PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/(BETA) Docker running on 64bit Amazon Linux 2/0.1.1",
+            "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Docker running on 64bit Amazon Linux/2.14.3",
+            "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Docker running on 64bit Amazon Linux/2.9.0",
+            "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Multi-container Docker running on 64bit Amazon Linux/2.20.0",
+            "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Preconfigured Docker - GlassFish 5.0 with Java 8 running on 64bit Amazon Linux/2.14.3",
+            "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Preconfigured Docker - Go 1.3 running on 64bit Debian/2.14.3",
+            "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Preconfigured Docker - Go 1.4 running on 64bit Debian/2.14.3",
+            "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Preconfigured Docker - Python 3.4 running on 64bit Debian/2.14.3"
+
+================================================================================
+aws elasticbeanstalk create-environment --application-name docker-react --environment-name Docker-react-env --tier Name=WebServer,Type=Standard --platform-arn "arn:aws:elasticbeanstalk:<REGION>::platform/Docker running on 64bit Amazon Linux/2.14.3"
+
+{
+    "EnvironmentName": "Docker-react-env",
+    "EnvironmentId": "e-zw83xuh3kc",
+    "ApplicationName": "docker-react",
+    "SolutionStackName": "64bit Amazon Linux 2018.03 v2.14.3 running Docker 18.09.9-ce",
+    "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Docker running on 64bit Amazon Linux/2.14.3",
+    "DateCreated": "2020-03-31T22:42:51.107Z",
+    "DateUpdated": "2020-03-31T22:42:51.107Z",
+    "Status": "Launching",
+    "Health": "Grey",
+    "Tier": {
+        "Name": "WebServer",
+        "Type": "Standard",
+        "Version": "1.0"
+    },
+    "EnvironmentArn": "arn:aws:elasticbeanstalk:<REGION>:<ACCOUNT_ID>:environment/docker-react/Docker-react-env"
+}
