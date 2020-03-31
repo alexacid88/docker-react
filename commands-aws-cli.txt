@@ -37,7 +37,7 @@ aws elasticbeanstalk list-platform-versions | grep PlatformArn | grep Docker
             "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Preconfigured Docker - Python 3.4 running on 64bit Debian/2.14.3"
 
 ================================================================================
-aws elasticbeanstalk create-environment --application-name docker-react --environment-name Docker-react-env --tier Name=WebServer,Type=Standard --platform-arn "arn:aws:elasticbeanstalk:<REGION>::platform/Docker running on 64bit Amazon Linux/2.14.3"
+aws elasticbeanstalk create-environment --application-name docker-react --environment-name develop --tier Name=WebServer,Type=Standard --platform-arn "arn:aws:elasticbeanstalk:<REGION>::platform/Docker running on 64bit Amazon Linux/2.14.3"
 
 {
     "EnvironmentName": "Docker-react-env",
