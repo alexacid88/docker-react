@@ -1,4 +1,8 @@
-language: generic
+language: node_js
+node_js:
+- '12'
+env:
+- TRAVIS_NODE_VERSION="12.16"
 sudo: required
 services:
   - docker
