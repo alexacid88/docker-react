@@ -1,4 +1,4 @@
-aws elasticbeanstalk create-application --application-name react
+aws elasticbeanstalk create-application --application-name docker
 
 {
     "Application": {
@@ -37,8 +37,8 @@ aws elasticbeanstalk list-platform-versions | grep PlatformArn | grep Docker
             "PlatformArn": "arn:aws:elasticbeanstalk:<REGION>::platform/Preconfigured Docker - Python 3.4 running on 64bit Debian/2.14.3"
 
 ================================================================================
-aws elasticbeanstalk create-application-version --application-name react --version-label V1 --auto-create-application
-aws elasticbeanstalk create-environment --application-name react --environment-name develop --tier Name=WebServer,Type=Standard --version-label V1 --platform-arn "arn:aws:elasticbeanstalk:us-east-1::platform/Docker running on 64bit Amazon Linux/2.14.3"
+aws elasticbeanstalk create-application-version --application-name docker --version-label V1 --auto-create-application
+aws elasticbeanstalk create-environment --application-name docker --environment-name docker-dev --cname-prefix docker-dev --tier Name=WebServer,Type=Standard --version-label V1 --platform-arn "arn:aws:elasticbeanstalk:<REGION>::platform/Multi-container Docker running on 64bit Amazon Linux/2.20.0" --solution-stack-name "64bit Amazon Linux 2018.03 v2.20.0 running Multi-container Docker 18.09.9-ce (Generic)"
 
 {
     "EnvironmentName": "Docker-react-env",
