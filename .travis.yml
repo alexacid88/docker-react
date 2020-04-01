@@ -15,7 +15,7 @@ deploy:
   secret_access_key: $AWS_SECRET_KEY
   region: "us-east-1"
   app: "docker"
-  env: "develop"
+  env: "docker-dev"
   bucket_name: "elasticbeanstalk-us-east-1-767507783469"
   bucket_path: "docker"
   on:
